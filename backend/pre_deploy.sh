@@ -1,14 +1,20 @@
 #!/bin/bash
 
-# Ensure the destination directories exist within the backend service's root
+# Pastikan RAILWAY_SERVICE_BASE tersedia
+if [ -z "$RAILWAY_SERVICE_BASE" ]; then
+  echo "Error: RAILWAY_SERVICE_BASE is not set. This script expects to be run on Railway." >&2
+  exit 1
+fi
+
+# Pastikan direktori tujuan ada di dalam root layanan backend
 mkdir -p templates
 mkdir -p static
 
-# Copy contents of frontend/templates to backend/templates
-# Assuming the monorepo root is the parent directory (../)
-cp -R ../frontend/templates/* templates/
+# Salin konten frontend/templates ke backend/templates
+# Menggunakan RAILWAY_SERVICE_BASE untuk menemukan root monorepo
+cp -R "${RAILWAY_SERVICE_BASE}/frontend/templates/"* templates/
 
-# Copy contents of frontend/static to backend/static
-cp -R ../frontend/static/* static/
+# Salin konten frontend/static ke backend/static
+cp -R "${RAILWAY_SERVICE_BASE}/frontend/static/"* static/
 
 echo "Frontend assets copied to backend service directory." 

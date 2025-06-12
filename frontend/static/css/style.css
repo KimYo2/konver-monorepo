@@ -1,0 +1,278 @@
+body {
+  background: linear-gradient(135deg, #353d99 0%, #00bcd4 50%, #ffffff 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 90px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 900px;
+}
+
+.card {
+  background-color: rgba(200, 200, 200, 0.8);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.upload-area {
+  border: 3px dashed #00bcd4;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(200, 200, 200, 0.7);
+}
+
+.upload-area:hover {
+  border-color: #1a237e;
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+.upload-area.highlight {
+  border-color: #007bff;
+  background-color: rgba(200, 200, 200);
+}
+
+.upload-area p {
+  margin-bottom: 0.5rem;
+}
+
+.upload-area i {
+  color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #1a237e;
+  border-color: #1a237e;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #283593;
+  border-color: #283593;
+}
+
+.btn-success {
+  background-color: #00bcd4;
+  border-color: #00bcd4;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #00acc1;
+  border-color: #00acc1;
+}
+
+.progress {
+  height: 25px;
+  border-radius: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progress-bar {
+  border-radius: 0.25rem;
+  background: linear-gradient(90deg, #1a237e 0%, #00bcd4 100%);
+}
+
+.form-select,
+.form-control {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  border-radius: 0.25rem;
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.25);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Toast Container */
+.toast-container {
+  position: fixed;
+  top: 90px; /* Posisi di bawah navbar */
+  right: 16px; /* Posisi di sebelah kanan */
+  z-index: 1090; /* Memastikan di atas elemen lain */
+}
+
+.toast {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.5rem; /* Jarak antar toast */
+}
+
+.toast-body {
+  font-size: 0.95rem;
+}
+
+.bg-primary {
+  background-color: rgba(26, 35, 126, 0.75) !important;
+}
+
+.bg-success {
+  background-color: rgba(0, 188, 212, 0.75) !important;
+}
+
+.bg-danger {
+  background-color: rgba(244, 67, 54, 0.75) !important;
+}
+
+.text-primary {
+  color: #1a237e !important;
+}
+
+.text-success {
+  color: #00bcd4 !important;
+}
+
+.text-danger {
+  color: #f44336 !important;
+}
+
+/* Custom Navbar Styles */
+.navbar {
+  position: fixed;
+  width: calc(100% - 32px);
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 1030;
+  background-color: rgba(
+    26,
+    35,
+    126,
+    0.75
+  ) !important; /* Navy dengan transparansi */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem; /* Mengurangi kelengkungan */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: #e0e0e0 !important;
+}
+
+/* Custom Footer Styles */
+.footer {
+  background-color: rgba(
+    26,
+    35,
+    126,
+    0.75
+  ) !important; /* Navy dengan transparansi */
+  backdrop-filter: blur(10px);
+  margin-top: auto; /* Mendorong footer ke bagian bawah jika konten pendek */
+  margin-bottom: 16px; /* Jarak dari tepi bawah */
+  margin-left: 16px; /* Jarak dari tepi kiri */
+  margin-right: 16px; /* Jarak dari tepi kanan */
+  width: calc(100% - 32px); /* Menyesuaikan lebar untuk celah samping */
+  z-index: 1020;
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .text-muted {
+  color: #ffffff !important;
+}
+
+.footer .fab {
+  color: #ffffff !important;
+}
+
+.main-content-wrapper {
+  flex-grow: 1;
+  padding-bottom: 55px; /* Memberikan ruang di bagian bawah konten agar tidak tertutup footer */
+}
+
+/* Help & Guide Specific Styles */
+.list-group-item {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Latar belakang lebih putih tapi tetap translucent */
+  margin-bottom: 0.5rem; /* Jarak antar item daftar */
+  border-radius: 0.35rem; /* Sedikit melengkung */
+  border: 1px solid rgba(0, 188, 212, 0.2); /* Border cyan */
+  transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.85); /* Lebih cerah saat di-hover */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Efek shadow */
+  transform: translateY(-2px); /* Sedikit naik */
+}
+
+.list-group-item .fw-bold {
+  color: #1a237e; /* Warna navy terang untuk judul item */
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.list-group-item ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.list-group-item ul li {
+  margin-bottom: 0.2rem;
+  color: #343a40;
+}
+
+.list-group-numbered .list-group-item::before {
+  font-weight: bold;
+  color: #00bcd4; /* Warna cyan untuk angka */
+  font-size: 1.2rem;
+}
+
+.card-title.text-center.mb-4 {
+  color: #1a237e; /* Warna navy terang untuk judul utama */
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h5.card-title.mt-5.mb-3 {
+  color: #1a237e; /* Warna navy terang untuk sub-judul */
+  font-size: 1.5rem;
+  border-bottom: 2px solid #00bcd4; /* Garis bawah cyan */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem !important;
+}
+
+.list-group-flush .list-group-item {
+  background-color: transparent; /* Tetap transparan untuk daftar flush */
+  border-color: rgba(0, 188, 212, 0.1); /* Border lebih halus */
+}
+
+.list-group-flush .list-group-item strong {
+  color: #1a237e; /* Warna navy untuk teks strong */
+}
+
+/* Gaya untuk tindakan berkas (status dan tombol hapus) */
+.file-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara badge dan tombol */
+}
+
+.file-actions .badge {
+  margin-right: 0; /* Pastikan tidak ada margin tambahan di sini */
+}

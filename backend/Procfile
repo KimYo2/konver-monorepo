@@ -1,1 +1,1 @@
-web: gunicorn app:app 
+web: bash pre_deploy.sh && gunicorn app:app 

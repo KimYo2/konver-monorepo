@@ -20,11 +20,7 @@ load_dotenv()
 # Konfigurasi logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-app = Flask(
-    __name__,
-    template_folder='../frontend/templates',
-    static_folder='../frontend/static'
-)
+app = Flask(__name__)
 # Aktifkan CORS untuk semua asal dan ekspos header Content-Disposition
 CORS(app, expose_headers=['Content-Disposition'])
 

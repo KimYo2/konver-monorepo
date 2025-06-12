@@ -8,6 +8,14 @@ from urllib.parse import quote_plus
 import uuid # Impor uuid untuk ID tugas unik
 from concurrent.futures import ThreadPoolExecutor # Impor ThreadPoolExecutor
 import ffmpeg
+from dotenv import load_dotenv
+import time
+import threading
+import queue
+import re
+
+# Load environment variables
+load_dotenv()
 
 # Konfigurasi logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -30,6 +38,10 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 # Inisialisasi ThreadPoolExecutor untuk tugas latar belakang
 executor = ThreadPoolExecutor(max_workers=4) # Sesuaikan jumlah worker sesuai kebutuhan
 task_progress = {} # Kamus untuk melacak progres tugas
+
+# Global variables for progress tracking
+progress_data = {}
+progress_lock = threading.Lock()
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -260,6 +272,5 @@ def help_page():
     return render_template('help.html')
 
 if __name__ == '__main__':
-    # Pastikan server berjalan dalam mode non-debug untuk ThreadPoolExecutor agar bekerja lebih baik
-    # Jika debug=True, Flask akan me-reload aplikasi dan me-reset ThreadPoolExecutor
-    app.run(debug=False, port=5000, threaded=True) # Aktifkan threaded untuk dukungan ThreadPoolExecutor yang lebih baik
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

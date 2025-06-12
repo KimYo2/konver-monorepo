@@ -437,7 +437,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(
           `Mengirim permintaan untuk berkas ${file.name} ke backend...`
         );
-        const response = await fetch("http://localhost:5000/api/process", {
+        const BACKEND_URL = "https://web-konversi.up.railway.app"; // Ganti dengan URL backend Anda
+        const response = await fetch(`${BACKEND_URL}/api/process`, {
           method: "POST",
           body: formData,
         });
